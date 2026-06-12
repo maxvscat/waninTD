@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Slot Tower Defense</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="game-wrap">
+      <canvas id="game" width="960" height="640" aria-label="Slot Tower Defense game canvas"></canvas>
+      <aside class="side">
+        <div class="controls-row">
+        <section class="slot-panel">
+          <div class="slot-head">
+            <h2>Slot</h2>
+            <span><b id="playerGold">50 金</b><small id="slotCost">15 金 / 次</small></span>
+          </div>
+          <div class="slot-machine">
+            <img class="slot-bg" src="assets/slotmachine.png" alt="">
+            <div class="reels" id="reels">
+              <div class="reel">?</div>
+              <div class="reel">?</div>
+              <div class="reel">?</div>
+            </div>
+            <button id="spinBtn" class="primary" aria-label="轉動"></button>
+          </div>
+        </section>
+
+        <section class="inventory-panel">
+          <div class="slot-head">
+            <h2>道具欄</h2>
+            <span id="bagCount">0 / 30</span>
+          </div>
+          <button id="mergeBtn" class="secondary">一鍵合成</button>
+          <div id="inventory" class="inventory"></div>
+        </section>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <div id="toast" class="toast"></div>
+  <script src="game.js"></script>
+</body>
+</html>
