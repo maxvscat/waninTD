@@ -1,6 +1,6 @@
 Slot Tower Defense 目前能力值
 
-版本：v11
+版本：v12
 
 共通規則
 - 塔樓最高等級：LV5
@@ -8,6 +8,13 @@ Slot Tower Defense 目前能力值
 - 升級只增加攻擊力，不增加攻速
 - LV5 塔樓上方會顯示星星
 - Slot 費用：第 1 關 15 金，每過一關 x1.2，並調整為 5 的倍數
+
+地圖與背景
+- 遊戲世界尺寸：15 x 10 格，每格 64 px，總尺寸 960 x 640
+- 背景圖：assets/bg/bg-1.png、bg-2.png、bg-3.png，開局與重來時隨機使用
+- 三張背景已校正為 960 x 640，格線位置與遊戲格完整對應
+- 原始背景備份：assets/bg/originals
+- 遊戲內不再額外生成棋盤格線，只繪製背景圖與怪物路線
 
 塔樓能力
 - 箭樓：解鎖第 1 關，攻擊 1，攻速 1，擴散 0，射程 3，效果：單體攻擊
@@ -21,7 +28,6 @@ Slot Tower Defense 目前能力值
 - 地圖塔樓圖片：使用 game.js 目前設定的 assets/tower/tower-lv1 到 tower-lv6
 - Slot / 道具欄 icon：assets/tower-icon/tower-lv1-icon.png 到 tower-lv6-icon.png
 - Slot 機台：assets/slotmachine.png
-- 背景圖：assets/bg 內隨機選用
 - tower-lv1：箭樓
 - tower-lv2：投石塔
 - tower-lv3：冰塔

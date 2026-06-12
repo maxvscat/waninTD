@@ -121,7 +121,7 @@ for (const file of ["mascot-7.png", "mascot-star.png", "mascot-pig.png", "mascot
 }
 
 const bgSprites = [];
-for (const file of ["bg-1.png", "bgt-2.png", "bg-3.png"]) {
+for (const file of ["bg-1.png", "bg-2.png", "bg-3.png"]) {
   const img = new Image();
   img.src = `assets/bg/${file}`;
   bgSprites.push(img);
@@ -980,7 +980,7 @@ function updateFx(dt) {
 function draw() {
   resetTransform();
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  drawBackground();
+  drawScreenBackground();
   applyCamera();
   drawMap();
   drawTowers();
@@ -992,30 +992,24 @@ function draw() {
   drawJackpot();
 }
 
-function drawBackground() {
+function drawScreenBackground() {
   const size = screenSize();
+  ctx.fillStyle = "#d8edf3";
+  ctx.fillRect(0, 0, size.w, size.h);
+}
+
+function drawWorldBackground() {
   const bg = state.bg;
   if (bg && bg.complete && bg.naturalWidth > 0) {
-    drawImageCover(bg, 0, 0, size.w, size.h);
+    drawImageCover(bg, 0, 0, WORLD_W, WORLD_H);
   } else {
-    ctx.fillStyle = "#d8edf3";
-    ctx.fillRect(0, 0, size.w, size.h);
+    ctx.fillStyle = "#cfe9c8";
+    ctx.fillRect(0, 0, WORLD_W, WORLD_H);
   }
 }
 
 function drawMap() {
-  ctx.fillStyle = "#cfe9c8";
-  ctx.fillRect(0, 0, WORLD_W, WORLD_H);
-  for (let r = 0; r < ROWS; r++) {
-    for (let c = 0; c < COLS; c++) {
-      const x = c * TILE;
-      const y = r * TILE;
-      ctx.fillStyle = (c + r) % 2 ? "#c5e5bd" : "#d7efcf";
-      ctx.fillRect(x, y, TILE, TILE);
-      ctx.strokeStyle = "rgba(48,91,80,.09)";
-      ctx.strokeRect(x, y, TILE, TILE);
-    }
-  }
+  drawWorldBackground();
   ctx.lineCap = "round";
   ctx.lineJoin = "round";
   ctx.strokeStyle = "#c79658";
